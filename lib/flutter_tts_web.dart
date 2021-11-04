@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:html' as html;
 import 'dart:js';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
@@ -35,10 +36,12 @@ class FlutterTtsPlugin {
   List<String?>? languages;
 
   FlutterTtsPlugin() {
-    utterance = html.SpeechSynthesisUtterance();
-    synth = html.window.speechSynthesis;
+    if (defaultTargetPlatform != TargetPlatform.android) {
+      utterance = html.SpeechSynthesisUtterance();
+      synth = html.window.speechSynthesis;
 
-    _listeners();
+      _listeners();
+    }
   }
 
   void _listeners() {
@@ -134,8 +137,11 @@ class FlutterTtsPlugin {
   }
 
   void _setRate(num rate) => utterance.rate = rate * 2.0;
+
   void _setVolume(num? volume) => utterance.volume = volume;
+
   void _setPitch(num? pitch) => utterance.pitch = pitch;
+
   void _setLanguage(String? language) => utterance.lang = language;
 
   bool _isLanguageAvailable(String? language) {
