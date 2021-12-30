@@ -1,5 +1,41 @@
 # ChangeLog
 
+## 3.3.3
+
+### Fixes
+
+- **iOS:** Fix synthesizeToFile fatal error
+
+## 3.3.2
+
+### Fixes
+
+- **Android:** Fix build.gradle missing property
+
+## 3.3.1
+
+### Fixes
+
+- **Web:** Fix awaitSpeakCompletion
+
+## 3.3.0
+
+### Features
+
+- **iOS:** Adding support for AVAudioSession.Mode
+
+## 3.2.4
+
+### Fixes
+
+- **Android:** Fix compileSDK version
+
+## 3.2.3
+
+### Fixes
+
+- **Android:** Fix await speak completion when queue mode is set to 1
+
 ## 3.2.2
 
 ### Fixes
